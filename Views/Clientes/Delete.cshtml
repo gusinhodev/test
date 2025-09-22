@@ -1,0 +1,37 @@
+﻿@model FullStackMVC.Models.Cliente
+
+@{
+    ViewData["Title"] = "Borrar Registro";
+}
+
+<h1>Borrar Registros</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <strong>@Html.DisplayNameFor(model => model.Nombre):</strong><br />
+            @Html.DisplayFor(model => model.Nombre)
+        </div>
+        <div class="col-md-6 mb-3">
+            <strong>@Html.DisplayNameFor(model => model.Email):</strong><br />
+            @Html.DisplayFor(model => model.Email)
+        </div>
+        <div class="col-md-6 mb-3">
+            <strong>@Html.DisplayNameFor(model => model.Telefono):</strong><br />
+            @Html.DisplayFor(model => model.Telefono)
+        </div>
+        <div class="col-md-6 mb-3">
+            <strong>@Html.DisplayNameFor(model => model.Empresa):</strong><br />
+            @Html.DisplayFor(model => model.Empresa)
+        </div>
+    </div>
+</div>
+
+
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Borrar" class="btn btn-danger" />
+    <a asp-action="Index" class="btn btn-primary ms-3">Volver al listado</a>
+    </form>
+</div>

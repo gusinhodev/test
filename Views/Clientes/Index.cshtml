@@ -1,0 +1,46 @@
+﻿@model IEnumerable<FullStackMVC.Models.Cliente>
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Gestión de Clientes</h2>
+
+    <div class="d-flex justify-content-between mb-3">
+        <a asp-action="Create" class="btn btn-primary"> Agregar Cliente</a>
+
+        <form asp-controller="Clientes" asp-action="Index" method="get" class="d-flex">
+            <input type="text" name="searchString" class="form-control me-2" placeholder="Buscar por nombre..." />
+            <button type="submit" class="btn btn-outline-secondary">Buscar</button>
+        </form>
+    </div>
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-light">
+            <tr class>
+                <th class="text-center">ID</th>
+                <th class="text-center">Nombre</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Teléfono</th>
+                <th class="text-center">Empresa</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cliente in Model)
+            {
+                <tr class="text-center">
+                    <td>@cliente.Id</td>
+                    <td>@cliente.Nombre</td>
+                    <td>@cliente.Email</td>
+                    <td>@cliente.Telefono</td>
+                    <td>@cliente.Empresa</td>
+                    <td>
+                        <a class="btn btn-sm btn-primary" href="/Clientes/Edit/@cliente.Id"> Editar</a>
+                        <a class="btn btn-sm btn-primary " href="/Clientes/Delete/@cliente.Id"> Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
